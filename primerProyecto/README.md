@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+
+
+comandos
+para generar nuevos componentes estandar: ng g @schematics/angular:component dashboard/dashboard("anteriormente va la ruta y el archivos sobre el que se creara el componente, por ejemplo en la ruta la carpeta dashboard en el archivo dasboard") --skip-selector --inline-style --skip-tests
+
+cuando configuramos las rutas obtenemos un error type en loadComponents que se puede solucioar de dos maneras; 1- utilizando ".then(c, c.component('./ruta/del/componente'))"
+2- ir al componente.componente.ts y decir que la clase se exportara por defecto
+
