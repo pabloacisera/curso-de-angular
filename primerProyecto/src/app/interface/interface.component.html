@@ -1,0 +1,15 @@
+<div class="msg-wel">
+  <p *ngIf="isLoggedIn" class="welcome-message">Bienvenido, {{ user }}!!</p>
+  <p *ngIf="!isLoggedIn" class="welcome-message">Ingrese usuario!</p>
+</div>
+
+<div class="input-container">
+  <input type="number" placeholder="Ingrese número..." #number />
+  <button (click)="traslateNumber(number.value)" class="translate-button">Translate</button>
+  <button (click)="resetTraslate()" class="translate-button">reset</button>
+</div>
+
+<div class="output-container">
+  <p class="output-text">Output: {{ result }}</p>
+</div>
+
