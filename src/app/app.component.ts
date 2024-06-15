@@ -4,6 +4,7 @@ import { EventoClickComponent } from './evento-click/evento-click.component';
 import { InterfaceComponent } from './interface/interface.component';
 import { CommonModule } from '@angular/common';
 import { TableClientComponent } from './table-client/table-client.component';
+import { ComponentParentComponent } from './component-parent/component-parent.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { TableClientComponent } from './table-client/table-client.component';
     InterfaceComponent,
     CommonModule,
     TableClientComponent,
+    ComponentParentComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
