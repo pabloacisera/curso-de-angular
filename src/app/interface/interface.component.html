@@ -1,6 +1,9 @@
 <div class="msg-wel">
-  <p *ngIf="isLoggedIn" class="welcome-message">Bienvenido, {{ user }}!!</p>
-  <p *ngIf="!isLoggedIn" class="welcome-message">Ingrese usuario!</p>
+  @if(isLoggedIn){
+    <p>Bienvenido, {{username}}</p><button (click)="logout()" >SALIR</button>
+  } @else {
+    <p>No se ha regisrado usuario, por favor Ingrese</p><h3 (click)="changeState()"><button>AQUI</button></h3>
+  }
 </div>
 
 <div class="input-container">
