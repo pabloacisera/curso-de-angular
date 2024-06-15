@@ -1,0 +1,51 @@
+<div>
+  <input type="text" placeholder="ingrese id del client" #id /><button
+    (click)="grabarId(id.value)"
+  >
+    @if(!clickedId){
+    <p>grabar</p>
+    }@else {
+    <p>hecho</p>
+    }
+  </button>
+  <input type="text" placeholder="ingrese nombre" #nombre /><button
+    (click)="grabarNombre(nombre.value)"
+  >
+    @if(!clickedNombre){
+    <p>grabar</p>
+    }@else {
+    <p>hecho</p>
+    }
+  </button>
+  <input type="text" placeholder="ingrese dni" #dni /><button
+    (click)="grabarDni(dni.value)"
+  >
+    @if(!clickedDni){
+    <p>grabar</p>
+    }@else {
+    <p>hecho</p>
+    }
+  </button>
+</div>
+
+<div>
+  <button (click)="agregarCliente()">Agregar Cliente</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>nombre</th>
+        <th>D.N.I</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        @for(client of clients; track client.id){
+        <td>{{ client.id }}</td>
+        <td>{{ client.nombre }}</td>
+        <td>{{ client.dni }}</td>
+        }
+      </tr>
+    </tbody>
+  </table>
+</div>
