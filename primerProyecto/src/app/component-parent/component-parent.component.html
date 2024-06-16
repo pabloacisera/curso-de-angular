@@ -1,0 +1,10 @@
+<div class="recB">
+  <p>Este es el componente padre</p>
+  <p class="fav-text">ID favorito seleccionado: {{ fav }}</p>
+</div>
+
+<div class="recA text-black">
+  <app-component-childre
+    (favEmitterEvent)="getFav($event)"
+  ></app-component-childre>
+</div>
