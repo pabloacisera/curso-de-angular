@@ -1,0 +1,12 @@
+<div>
+  <ul>
+    <li>
+      @for(item of characters; track item.name){
+        <img [src]="item.image"/>
+        <h3>{{item.name}}</h3>
+        <p>Especie: {{item.species}}</p>
+        <p>Status: {{item.status}}</p>
+      }
+    </li>
+  </ul>
+</div>

@@ -34,3 +34,63 @@ para generar nuevos componentes estandar: ng g @schematics/angular:component das
 cuando configuramos las rutas obtenemos un error type en loadComponents que se puede solucioar de dos maneras; 1- utilizando ".then(c, c.component('./ruta/del/componente'))"
 2- ir al componente.componente.ts y decir que la clase se exportara por defecto
 
+
+
+HTTPCLIENT:
+utilizar httpclient como provider en app.config.ts para utilizar el modulo y llamar a una api
+provideHttpClient()
+
+lo inyectamos en el constructor
+constructor( private http: HttpClient ){}
+
+
+
+no debemos olvidar crear una interface que determina que objeto u objetos van a venir, por ejemplo en el caso de pokemonapi
+
+export interface Pokemon(){
+  name: string,
+  url: string,
+}
+export interface PokemonResults(){
+  count: number;
+  next: string,
+  previous?:string;
+  results: Pokemon[]
+}
+
+luego un metodo getPokemonList(): Observable<PokemonResults>{
+  return this.http.get<PokemosResults>('AQUI VA LA URL que se puede guardar en .env')
+}
+
+antes de manejar los erroes debemos conectar con el servicio de la api
+
+para ello trabajaremos en la pagina donde debe renderizarse
+
+importaremos [asyncPipe, ErrorMessageComponent]//el pipe es quien gestiona la suscripcion y desuscripcion
+
+/**********************************************/
+
+vamos a suponer que se van a renderizar en:
+
+export class PokemonList implements OnInit {
+
+  public pokemonResults$:Observable<PokemonResults> //donde se va a guardar lo que venga la llamada
+
+  constructor( private service: ServicePokemon){}
+
+  ngOnInit():void{
+    this.pokemonResults= this.service.getPokemonList();
+  }
+}
+
+ahora en el template:
+
+@if(pokemonResults$ | async; as resultObjetct ){
+  <ul class="poke-list">
+    @for(item of resultObjetct.results; track item.name){
+      <li>
+        "introducir el selector correspondiente(este sera el del  componente que tenga el @Input pokemosInfo: Pokemon)" //esta es la interface pokemon
+      </li>
+    }
+  </ul>
+}

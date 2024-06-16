@@ -3,4 +3,14 @@
 <app-evento-click></app-evento-click>
 <app-table-client></app-table-client>
 <app-component-parent></app-component-parent>
+@defer () {
+  <app-progressive-load></app-progressive-load>//defer: establece una carga diferida del elemento//placeholder: establece que sucede en el espacio vacio antes de comenzar la carga, para que no de un salto. 
+  "no es igual al estado"// por su parte el loading establece que hara mientras si se esta cargando
+}@placeholder {
+  <p>Esperando para cargar...</p>
+} @loading(minimum 3s) {
+  <h1>Ahora si estoy cargando...</h1>
+}
+
+<app-pokemon-render></app-pokemon-render>
 <router-outlet></router-outlet>

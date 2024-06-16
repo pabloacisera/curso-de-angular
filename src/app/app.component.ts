@@ -5,6 +5,8 @@ import { InterfaceComponent } from './interface/interface.component';
 import { CommonModule } from '@angular/common';
 import { TableClientComponent } from './table-client/table-client.component';
 import { ComponentParentComponent } from './component-parent/component-parent.component';
+import { ProgressiveLoadComponent } from './progressive-load/progressive-load.component';
+import { PokemonRenderComponent } from './pokemon-render/pokemon-render.component';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,9 @@ import { ComponentParentComponent } from './component-parent/component-parent.co
     InterfaceComponent,
     CommonModule,
     TableClientComponent,
-    ComponentParentComponent
+    ComponentParentComponent,
+    ProgressiveLoadComponent,
+    PokemonRenderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
